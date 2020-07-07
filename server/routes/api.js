@@ -31,4 +31,39 @@ router.get('/videos', function(req, res){
          });
 });
 
+
+router.get('/videos/:id', function(req, res){
+    console.log("Get Request for a videos");
+
+    Video.findById(req.params.id)
+         .exec(function(err, videos){
+             if(err){
+                 console.log("Error retrieving videos");
+             }
+             else{
+                 res.json(videos);
+             }
+         });
+});
+
+
+router.post('/video', function(req, res){
+    console.log("Post a videos");
+
+    var newVideo = new Video();
+    newVideo.title = req.body.title;
+    newVideo.url = req.body.url;
+    newVideo.description = req.body.description;
+
+    newVideo.save(function(err, insertedVideo){
+        if(err){
+            console.log("Error Saving videos");
+        }
+        else{
+            res.json(insertedVideo);
+        }
+    })
+   
+});
+
 module.exports = router;
