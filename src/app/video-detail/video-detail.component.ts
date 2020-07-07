@@ -9,10 +9,19 @@ import { Video } from './../video';
 export class VideoDetailComponent implements OnInit {
 
   @Input() video:Video
+  public editTitle:boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(){
+    this.editTitle = false;
+  }
+
+  onTitleClick(){
+    this.editTitle = true;
   }
 
 }

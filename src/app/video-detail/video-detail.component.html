@@ -1,9 +1,10 @@
 <div>
     <form>
-        <div class="form-group">
+        <div *ngIf="editTitle" class="form-group">
             <input type="input" class="form-control" name="title" required placeholder="title"
             [(ngModel)]="video.title">
         </div>
+        <h3 *ngIf="!editTitle" (click)="onTitleClick()">{{video.title}}</h3>
         <div class="form-group">
             <input type="input" class="form-control" name="url" required placeholder="url"
             [(ngModel)]="video.url">
