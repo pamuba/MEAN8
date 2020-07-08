@@ -19,6 +19,7 @@
             </form>
         </div>
         <video-detail (updateVideoEvent)="onUpdateVideoEvent($event)"
+                      (deleteVideoEvent)="onDeleteVideoEvent($event)"
         *ngIf="selectedVideo && hidenewVideo"  [video]="selectedVideo"></video-detail>
     </div>
     <div class="col-sm-3">

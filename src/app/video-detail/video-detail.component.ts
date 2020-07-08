@@ -10,6 +10,7 @@ export class VideoDetailComponent implements OnInit {
 
   @Input() video:Video
   @Output() updateVideoEvent = new EventEmitter();
+  @Output() deleteVideoEvent = new EventEmitter();
   public editTitle:boolean = false;
 
   constructor() { }
@@ -27,6 +28,10 @@ export class VideoDetailComponent implements OnInit {
 
   updateVideo(){
     this.updateVideoEvent.emit(this.video);
+  }
+
+  deleteVideo(){
+    this.deleteVideoEvent.emit(this.video);
   }
 
 }
