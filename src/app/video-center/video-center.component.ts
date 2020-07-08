@@ -9,7 +9,7 @@ import { VideoService } from './../video.service'
 })
 export class VideoCenterComponent implements OnInit {
 
-  private hidenewVideo:boolean = true;
+  public hidenewVideo:boolean = true;
 
   videos:any=[]
 
