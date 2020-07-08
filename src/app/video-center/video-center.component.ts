@@ -36,6 +36,7 @@ export class VideoCenterComponent implements OnInit {
     this._videoService.addVideo(video)
         .subscribe(resNewVideo=>{
           this.videos.push(resNewVideo);
+          this.hidenewVideo = true;
           this.selectedVideo = resNewVideo;
         })
   }
