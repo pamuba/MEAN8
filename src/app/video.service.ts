@@ -10,6 +10,7 @@ export class VideoService {
 
   private _getUrl = '/api/videos';
   private _postUrl = '/api/video';
+  private _putUrl = '/api/video/';
 
   constructor(private _http:HttpClient) { }
 
@@ -27,5 +28,10 @@ export class VideoService {
   addVideo(video:Video):Observable<Video>{
     return this._http.post<Video>(this._postUrl, video, this.httpOptions)
                 .pipe();
+  }
+
+  updateVideo(video:Video):Observable<Video>{
+    return this._http.put<Video>(this._putUrl + video._id, video, this.httpOptions)
+    .pipe();
   }
 }
